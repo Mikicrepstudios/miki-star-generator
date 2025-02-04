@@ -12,7 +12,7 @@ int main(int argc, char* argv[]) {
     bool running = true;
 
     // MUST USE LINE BELOW
-    core::printver(3);
+    core::printver(2);
 
     // Main stuff
     const std::string title = "Mikicrep Framework";
