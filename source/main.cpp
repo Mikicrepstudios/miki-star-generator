@@ -8,6 +8,8 @@
 #include "mf/logic.h"
 #include "mf/sfx.h"
 
+#include "headers/data.h"
+
 int main(int argc, char* argv[]) {
     bool running = true;
 
@@ -21,6 +23,10 @@ int main(int argc, char* argv[]) {
 
     // Create window
     if(core::InitWindow(window, title, 1280, 800) == false) running = false;
+
+    // Init structs
+    data::Settings settings = {};
+    data::Map map = {};
 
     while(running) {
         // Prepare next frame
@@ -85,6 +91,13 @@ int main(int argc, char* argv[]) {
 
         // Draw stuff
         draw::DrawText(window.renderer, window.font, {window.width / 2 - 100, 0, 200, 50}, "DEMO", colors::white);
+
+        for(int i = 0; i <= settings.starsAmount; i++) {
+            int x = logic::GenRanNum(0, map.width);
+            int y = logic::GenRanNum(0, map.height);
+
+            draw::DrawRect(window.renderer, {x, y, 1, 1}, colors::white);
+        }
 
         // Finish frame
         core::UpdateTimers();
