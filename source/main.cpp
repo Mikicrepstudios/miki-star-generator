@@ -9,6 +9,7 @@
 #include "mf/sfx.h"
 
 #include "headers/data.h"
+#include "headers/logic.h"
 
 int main(int argc, char* argv[]) {
     bool running = true;
@@ -19,6 +20,7 @@ int main(int argc, char* argv[]) {
     // Main stuff
     const std::string title = "Mikicrep Framework";
     core::MF_Window window = {};
+    window.fps = 15; // We dont need high fps as it will waste resources
     SDL_Event event = {};
 
     // Create window
@@ -55,6 +57,7 @@ int main(int argc, char* argv[]) {
                 case SDL_MOUSEBUTTONDOWN:
                     // Mouse button is held
                     window.mouse.isDown = true;
+                    settings.generated = false;
                     break;
                 case SDL_MOUSEBUTTONUP:
                     // Mouse button is released
@@ -92,12 +95,8 @@ int main(int argc, char* argv[]) {
         // Draw stuff
         draw::DrawText(window.renderer, window.font, {window.width / 2 - 100, 0, 200, 50}, "DEMO", colors::white);
 
-        for(int i = 0; i <= settings.starsAmount; i++) {
-            int x = logic::GenRanNum(0, map.width);
-            int y = logic::GenRanNum(0, map.height);
-
-            draw::DrawRect(window.renderer, {x, y, 1, 1}, colors::white);
-        }
+        logic::GenerateStars(settings, map);
+        logic::DrawStars(window, map);
 
         // Finish frame
         core::UpdateTimers();

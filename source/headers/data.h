@@ -3,6 +3,8 @@
 namespace data {
     struct Settings {
         int starsAmount = 100;
+        
+        bool generated = false;
     };
 
     struct Map {
