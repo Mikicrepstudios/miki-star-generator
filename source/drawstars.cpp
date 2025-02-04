@@ -13,8 +13,6 @@ namespace logic {
 		float wFactor = extra::castToFloat(window.width) / 1280;
 		float hFactor = extra::castToFloat(window.height) / 800;
 
-        std::cout << wFactor << " " << hFactor << std::endl;
-
         for(int x = 0; x < map.width; x++) {
             for(int y = 0; y < map.height; y++) {
                 if(map.map[x][y] == 1) {

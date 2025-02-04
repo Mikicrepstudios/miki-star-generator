@@ -93,8 +93,6 @@ int main(int argc, char* argv[]) {
         SDL_RenderClear(window.renderer);
 
         // Draw stuff
-        draw::DrawText(window.renderer, window.font, {window.width / 2 - 100, 0, 200, 50}, "DEMO", colors::white);
-
         logic::GenerateStars(settings, map);
         logic::DrawStars(window, map);
 
