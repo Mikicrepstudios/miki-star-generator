@@ -2,7 +2,7 @@
 
 namespace data {
     struct Settings {
-        int starsAmount = 100;
+        int starsAmount = 500;
         
         bool generated = false;
     };
