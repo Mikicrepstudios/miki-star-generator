@@ -3,6 +3,8 @@
 namespace data {
     struct Settings {
         int starsAmount = 500;
+        int starSizeMin = 1;
+        int starSizeMax = 2;
         
         bool generated = false;
     };

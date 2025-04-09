@@ -11,7 +11,16 @@ namespace logic {
                 int x = logic::GenRanNum(0, map.width);
                 int y = logic::GenRanNum(0, map.height);
 
-                map.map[x][y] = 1;
+                int size = logic::GenRanNum(settings.starSizeMin, settings.starSizeMax);
+
+                for(int xDraw = 0; xDraw <= size; xDraw++) {
+                    for(int yDraw = 0; yDraw <= size; yDraw++) {
+                        if(x + xDraw < map.width && y + yDraw < map.height) {
+                            map.map[x + xDraw][y + yDraw] = 1;
+                        }
+                    }
+                }
+                //map.map[x][y] = 1;
             }
 
             settings.generated = true;
